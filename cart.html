@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سبد خرید | قصر طلا</title>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="cart">
+
+<div class="rate-ticker" id="rate-ticker"></div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand"><span class="seal">ق</span> قصر طلا</a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav="home">خانه</a>
+      <a href="products.html" data-nav="products">محصولات</a>
+      <a href="articles.html" data-nav="articles">مقالات</a>
+      <a href="about.html" data-nav="about">درباره ما</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">سبد خرید <span class="cart-count" data-cart-count>0</span></a>
+      <button class="menu-toggle" aria-label="باز کردن منو">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">خانه</a> / سبد خرید</div>
+    <span class="eyebrow">پیش از پرداخت بررسی کنید</span>
+    <h1>سبد خرید</h1>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" id="cart-wrap"></div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 style="font-family:var(--ff-display);font-size:20px;color:var(--gold-bright)">قصر طلا</h4>
+        <p>جواهرات طلای دست‌ساز با تضمین اصالت و قیمت شفاف بر اساس نرخ روز.</p>
+        <ul class="social-links" id="footer-social"></ul>
+      </div>
+      <div><h4>دسترسی سریع</h4><ul><li><a href="products.html">محصولات</a></li><li><a href="articles.html">مقالات</a></li><li><a href="cart.html">سبد خرید</a></li></ul></div>
+      <div><h4>پشتیبانی</h4><ul><li><a href="about.html">درباره ما</a></li><li><a href="tel:09150057752">۰۹۱۵-۰۰۵۷۷۵۲</a></li></ul></div>
+      <div><h4>مدیریت</h4><ul><li><a href="admin/login.html">ورود پنل ادمین</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© تمامی حقوق برای قصر طلا محفوظ است.</span>
+      <span>نرخ‌ها به صورت لحظه‌ای از سوی مدیریت فروشگاه به‌روزرسانی می‌شود.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/pricing.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+function draw(){
+  const lines = cartWithDetails();
+  const wrap = document.getElementById('cart-wrap');
+
+  if(!lines.length){
+    wrap.innerHTML = `<div class="empty-state"><div class="hallmark">۰</div><p>سبد خرید شما خالی است.</p><a href="products.html" class="btn btn-gold" style="margin-top:16px">مشاهده محصولات</a></div>`;
+    return;
+  }
+
+  const total = lines.reduce((s,l)=> s + l.price.total * l.qty, 0);
+
+  wrap.innerHTML = `
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px" id="cart-grid">
+    <div>
+      ${lines.map(l => `
+        <div class="card" style="flex-direction:row;align-items:center;padding:16px;margin-bottom:14px">
+          <div class="card__media" style="width:90px;height:90px;flex-shrink:0;border-radius:2px">
+            ${l.product.images && l.product.images[0] ? `<img src="${l.product.images[0]}">` : `<div class="hallmark">${l.product.category[0]}</div>`}
+          </div>
+          <div style="flex:1;padding:0 18px">
+            <div class="card__title">${l.product.name}</div>
+            <div class="card__meta">${toFaDigits(l.product.weight)} گرم · ${formatToman(l.price.total)} / عدد</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:10px">
+              <input type="number" min="1" value="${l.qty}" data-qty="${l.productId}" style="width:64px;background:var(--ink);border:1px solid var(--line);color:var(--cream);padding:8px;text-align:center;border-radius:2px">
+              <button class="btn btn-outline btn-sm" data-remove="${l.productId}">حذف</button>
+            </div>
+          </div>
+          <div style="font-weight:700;color:var(--gold-bright)">${formatToman(l.price.total * l.qty)}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div>
+      <div class="price-breakdown">
+        <div><span>تعداد اقلام</span><span>${toFaDigits(lines.reduce((s,l)=>s+l.qty,0))}</span></div>
+        <div class="total"><span>جمع کل</span><span>${formatToman(total)}</span></div>
+      </div>
+      <a href="checkout.html" class="btn btn-gold btn-block" style="margin-top:18px">ادامه‌ی خرید و پرداخت</a>
+      <p class="hint" style="margin-top:10px">قیمت نهایی در زمان پرداخت، بر اساس نرخ لحظه‌ای دوباره بررسی می‌شود.</p>
+    </div>
+  </div>
+  <style>@media(max-width:760px){#cart-grid{grid-template-columns:1fr !important}}</style>
+  `;
+
+  wrap.querySelectorAll('[data-qty]').forEach(inp=>{
+    inp.addEventListener('change', ()=>{
+      setCartQty(inp.getAttribute('data-qty'), Math.max(1, parseInt(inp.value)||1));
+      renderCartCount();
+      draw();
+    });
+  });
+  wrap.querySelectorAll('[data-remove]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      removeFromCart(btn.getAttribute('data-remove'));
+      renderCartCount();
+      toast('از سبد خرید حذف شد');
+      draw();
+    });
+  });
+}
+draw();
+</script>
+</body>
+</html>
