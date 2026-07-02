@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قصر طلا | جواهرات طلای دست‌ساز</title>
+<meta name="description" content="فروشگاه آنلاین قصر طلا - خرید طلا و جواهرات با محاسبه قیمت لحظه‌ای بر اساس نرخ روز">
+<link rel="stylesheet" href="main.css">
+</head>
+<body data-page="home">
+
+<div class="rate-ticker" id="rate-ticker"></div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand"><span class="seal">ق</span> قصر طلا</a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav="home">خانه</a>
+      <a href="products.html" data-nav="products">محصولات</a>
+      <a href="articles.html" data-nav="articles">مقالات</a>
+      <a href="about.html" data-nav="about">درباره ما</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">سبد خرید <span class="cart-count" data-cart-count>0</span></a>
+      <button class="menu-toggle" aria-label="باز کردن منو">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">دست‌ساز · تضمین اصالت · نرخ لحظه‌ای</span>
+      <h1>طلایی که <em>قیمتش را</em><br>همین حالا می‌دانید</h1>
+      <p class="lead">قیمت هر قطعه از روی وزن دقیق و نرخ لحظه‌ای طلا محاسبه می‌شود؛ همان لحظه که نرخ اتحادیه تغییر کند، قیمت‌ها در سایت هم به‌روز می‌شوند.</p>
+      <div class="hero-cta">
+        <a href="products.html" class="btn btn-gold">مشاهده محصولات</a>
+        <a href="about.html" class="btn btn-outline">درباره‌ی ما</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g1" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#e8c876"/>
+            <stop offset="60%" stop-color="#a9813c"/>
+            <stop offset="100%" stop-color="#4a3a1c"/>
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="150" fill="none" stroke="url(#g1)" stroke-width="3"/>
+        <circle cx="200" cy="200" r="115" fill="none" stroke="#8b5e34" stroke-width="1.4" opacity=".7"/>
+        <circle cx="200" cy="200" r="80" fill="none" stroke="#e8c876" stroke-width="1.2" opacity=".55"/>
+        <path d="M200 120 L212 185 L280 200 L212 215 L200 280 L188 215 L120 200 L188 185 Z" fill="url(#g1)" opacity=".9"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>محصولات ویژه</h2>
+      <a href="products.html" class="btn btn-outline btn-sm">همه‌ی محصولات</a>
+    </div>
+    <div class="grid" id="featured-grid"></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head">
+      <h2>دسته‌بندی‌ها</h2>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))" id="category-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>از مجله‌ی قصر طلا</h2>
+      <a href="articles.html" class="btn btn-outline btn-sm">همه‌ی مقالات</a>
+    </div>
+    <div class="grid" id="articles-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 style="font-family:var(--ff-display);font-size:20px;color:var(--gold-bright)">قصر طلا</h4>
+        <p>جواهرات طلای دست‌ساز با تضمین اصالت و قیمت شفاف بر اساس نرخ روز.</p>
+      </div>
+      <div><h4>دسترسی سریع</h4><ul><li><a href="products.html">محصولات</a></li><li><a href="articles.html">مقالات</a></li><li><a href="cart.html">سبد خرید</a></li></ul></div>
+      <div>
+        <h4>ارتباط با ما</h4>
+        <ul class="social-links" id="footer-social"></ul>
+      </div>
+      <div><h4>مدیریت</h4><ul><li><a href="admin-login.html">ورود پنل ادمین</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© تمامی حقوق برای قصر طلا محفوظ است.</span>
+      <span>نرخ‌ها به صورت لحظه‌ای از سوی مدیریت فروشگاه به‌روزرسانی می‌شود.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="pricing.js"></script>
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script>
+function productCard(p, settings){
+  const price = calcProductPrice(p, settings);
+  return `
+  <div class="card">
+    <a href="product.html?id=${p.id}" class="card__media">
+      ${p.images && p.images[0] ? `<img src="${p.images[0]}" alt="${p.name}">` : `<div class="hallmark">${p.category ? p.category[0] : 'ز'}</div>`}
+    </a>
+    <div class="card__body">
+      <span class="card__cat">${p.category}</span>
+      <a href="product.html?id=${p.id}"><h3 class="card__title">${p.name}</h3></a>
+      <span class="card__meta">وزن: ${toFaDigits(p.weight)} گرم · عیار ${toFaDigits(p.purity||18)}</span>
+      <div class="card__price">
+        <div><b>${formatToman(price.total)}</b><div class="unit">قیمت لحظه‌ای</div></div>
+        <button class="btn btn-gold btn-sm" data-add="${p.id}">افزودن</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderHome(){
+  const settings = getSettings();
+  const products = getProducts();
+  document.getElementById('featured-grid').innerHTML = products.slice(0,4).map(p=>productCard(p,settings)).join('');
+
+  const cats = [...new Set(products.map(p=>p.category))];
+  document.getElementById('category-grid').innerHTML = cats.map(c => `
+    <a href="products.html?category=${encodeURIComponent(c)}" class="card" style="align-items:center;justify-content:center;text-align:center;padding:26px 10px">
+      <div class="hallmark" style="margin:0 auto 12px">${c[0]}</div>
+      <div class="card__title">${c}</div>
+    </a>`).join('');
+
+  const articles = getArticles();
+  document.getElementById('articles-grid').innerHTML = articles.slice(0,3).map(a => `
+    <a href="article.html?id=${a.id}" class="card">
+      <div class="card__media"><div class="hallmark">م</div></div>
+      <div class="card__body">
+        <span class="card__cat">مقاله</span>
+        <h3 class="card__title">${a.title}</h3>
+        <span class="card__meta">${a.summary}</span>
+      </div>
+    </a>`).join('');
+
+  document.querySelectorAll('[data-add]').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.preventDefault();
+      addToCart(btn.getAttribute('data-add'), 1);
+      renderCartCount();
+      toast('به سبد خرید اضافه شد');
+    });
+  });
+}
+renderHome();
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت | قصر طلا</title>
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="brand"><span class="seal">ق</span> پنل مدیریت</div>
+    <nav class="admin-nav" id="admin-nav">
+      <button data-tab="dashboard" class="active">📊 داشبورد</button>
+      <button data-tab="products">💍 محصولات</button>
+      <button data-tab="orders">🧾 سفارش‌ها</button>
+      <button data-tab="articles">📰 مقالات</button>
+      <button data-tab="rate">📈 نرخ طلا و تلگرام</button>
+      <button data-tab="settings">⚙️ تنظیمات فروشگاه</button>
+    </nav>
+    <div class="logout">
+      <a href="index.html" class="hint" style="display:block;margin-bottom:10px;color:var(--gold)">← مشاهده سایت</a>
+      <button class="btn btn-outline btn-sm btn-block" id="logout-btn">خروج</button>
+    </div>
+  </aside>
+  <main class="admin-main" id="admin-view"></main>
+</div>
+
+<script src="pricing.js"></script>
+<script src="data.js"></script>
+<script src="telegram-rate.js"></script>
+<script src="admin-dashboard.js"></script>
+</body>
+</html>
