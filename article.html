@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مقاله | قصر طلا</title>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="articles">
+
+<div class="rate-ticker" id="rate-ticker"></div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand"><span class="seal">ق</span> قصر طلا</a>
+    <nav class="main-nav">
+      <a href="index.html" data-nav="home">خانه</a>
+      <a href="products.html" data-nav="products">محصولات</a>
+      <a href="articles.html" data-nav="articles">مقالات</a>
+      <a href="about.html" data-nav="about">درباره ما</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-btn">سبد خرید <span class="cart-count" data-cart-count>0</span></a>
+      <button class="menu-toggle" aria-label="باز کردن منو">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="article-wrap"></section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 style="font-family:var(--ff-display);font-size:20px;color:var(--gold-bright)">قصر طلا</h4>
+        <p>جواهرات طلای دست‌ساز با تضمین اصالت و قیمت شفاف بر اساس نرخ روز.</p>
+      </div>
+      <div><h4>دسترسی سریع</h4><ul><li><a href="products.html">محصولات</a></li><li><a href="articles.html">مقالات</a></li><li><a href="cart.html">سبد خرید</a></li></ul></div>
+      <div>
+        <h4>ارتباط با ما</h4>
+        <ul class="social-links" id="footer-social"></ul>
+      </div>
+      <div><h4>مدیریت</h4><ul><li><a href="admin/login.html">ورود پنل ادمین</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© تمامی حقوق برای قصر طلا محفوظ است.</span>
+      <span>نرخ‌ها به صورت لحظه‌ای از سوی مدیریت فروشگاه به‌روزرسانی می‌شود.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/pricing.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ui.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id');
+const article = getArticle(id);
+const wrap = document.getElementById('article-wrap');
+
+wrap.innerHTML = article ? `
+  <div class="container" style="max-width:760px">
+    <div class="breadcrumb"><a href="index.html">خانه</a> / <a href="articles.html">مقالات</a> / ${article.title}</div>
+    <span class="eyebrow">${new Date(article.date).toLocaleDateString('fa-IR')}</span>
+    <h1 style="font-size:32px;margin-bottom:20px">${article.title}</h1>
+    <div style="color:var(--cream-dim);font-size:15.5px;line-height:2">${article.content.split('\n').map(p=>`<p>${p}</p>`).join('')}</div>
+    <div class="divider"></div>
+    <a href="articles.html" class="btn btn-outline">بازگشت به مقالات</a>
+  </div>
+` : `<div class="container empty-state"><div class="hallmark">؟</div><p>این مقاله پیدا نشد.</p><a href="articles.html" class="btn btn-outline" style="margin-top:16px">بازگشت به مقالات</a></div>`;
+</script>
+</body>
+</html>
