@@ -51,7 +51,7 @@ const DEFAULT_SETTINGS = {
   storePhone: '0915-0057752',
   storeAddress: 'تهران، بازار بزرگ، سرای زرگری',
   yearsActive: 3,
-  socialTelegram: '',
+  socialTelegram: 't.me/HKH1391',
   socialTelegramGroup: 'https://t.me/ghasretaluRezakheradmand',
   socialEitaaGroup: 'https://eitaa.com/joinchat/2050032503Cab479c004a',
   socialEitaaContact: 'https://eitaa.com/Hossein1707',
