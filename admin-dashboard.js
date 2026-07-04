@@ -125,6 +125,10 @@ function productModal(product) {
       </div>
       <div class="form-row">
         <div class="field"><label>درصد اجرت ساخت</label><input name="laborPercent" type="number" step="0.1" required value="${product.laborPercent}"></div>
+        <div class="field">
+  <label>تعداد موجودی</label>
+  <input name="stock" type="number" min="0" value="${product.stock ?? 0}">
+</div>
         <div class="field"><label>کد کالا (SKU)</label><input name="sku" value="${product.sku || ''}"></div>
       </div>
       <div class="field"><label>توضیحات</label><textarea name="description" rows="3">${product.description || ''}</textarea></div>
