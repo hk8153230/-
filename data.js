@@ -80,6 +80,7 @@ function seedIfEmpty() {
   }
   if (!localStorage.getItem(DB_KEYS.products)) {
     _write(DB_KEYS.products, [
+      stock:10,
       { id: _uid(), name: 'گردنبند طرح برگ', category: 'گردنبند', weight: 4.2, laborPercent: 18, purity: 18, sku: 'NCK-001', description: 'گردنبند ظریف طرح برگ، مناسب استفاده روزمره، ساخت دست.', images: [] },
       { id: _uid(), name: 'دستبند زنجیری کلاسیک', category: 'دستبند', weight: 6.8, laborPercent: 15, purity: 18, sku: 'BRC-001', description: 'دستبند زنجیری با طراحی کلاسیک و قفل ایمن.', images: [] },
       { id: _uid(), name: 'انگشتر سولیتر', category: 'انگشتر', weight: 3.1, laborPercent: 22, purity: 18, sku: 'RNG-001', description: 'انگشتر تک‌نگین با کار ظریف روی حلقه.', images: [] },
