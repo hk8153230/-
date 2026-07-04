@@ -358,7 +358,7 @@ function renderSettings() {
     <p class="hint" style="margin-bottom:14px">این لینک‌ها پایین همه‌ی صفحه‌های سایت و در صفحه‌ی «درباره ما» نمایش داده می‌شوند و با کلیک، مستقیم به همان برنامه (تلگرام/ایتا) باز می‌شوند. هر کدام را خالی بگذارید، نمایش داده نمی‌شود.</p>
     <form id="social-form" style="max-width:520px">
       <div class="field"><label>لینک گروه تلگرام</label><input name="socialTelegramGroup" placeholder="https://t.me/joinchat/..." value="${s.socialTelegramGroup || ''}"></div>
-      <div class="field"><label>لینک کانال تلگرام</label><input name="socialTelegram" placeholder="https://t.me/yourchannel" value="${s.socialTelegram || ''}"></div>
+      <div class="field"><label>ارتباط مستقیم در تلگرام</label><input name="socialTelegram" placeholder="https://t.me/yourchannel" value="${s.socialTelegram || ''}"></div>
       <div class="field"><label>لینک گروه ایتا</label><input name="socialEitaaGroup" placeholder="https://eitaa.com/joinchat/..." value="${s.socialEitaaGroup || ''}"></div>
       <div class="field"><label>لینک ارتباط مستقیم در ایتا</label><input name="socialEitaaContact" placeholder="https://eitaa.com/username" value="${s.socialEitaaContact || ''}"></div>
       <div class="field"><label>لینک اینستاگرام</label><input name="socialInstagram" placeholder="https://instagram.com/yourpage" value="${s.socialInstagram || ''}"></div>
