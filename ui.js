@@ -51,7 +51,7 @@ function renderSocialLinks() {
   const s = getSettings();
   const links = [
     { url: s.socialTelegramGroup, label: 'گروه تلگرام', icon: '✈' },
-    { url: s.socialTelegram, label: 'ارتباط در تلگرام', icon: '📢' },
+    { url: s.socialTelegram, label: 'لینک ارتباط با ما در تلگرام', icon: '📢' },
     { url: s.socialEitaaGroup, label: 'گروه ایتا', icon: '🗨' },
     { url: s.socialEitaaContact, label: 'ارتباط در ایتا', icon: '💬' },
     { url: s.socialInstagram, label: 'اینستاگرام', icon: '◎' },
